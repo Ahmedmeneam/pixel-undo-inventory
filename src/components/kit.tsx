@@ -1,5 +1,4 @@
 import { type ReactNode, useEffect } from "react";
-import { X } from "lucide-react";
 
 export function Modal({ open, onClose, title, children, wide }: { open: boolean; onClose: () => void; title: ReactNode; children: ReactNode; wide?: boolean }) {
   useEffect(() => {
@@ -13,7 +12,9 @@ export function Modal({ open, onClose, title, children, wide }: { open: boolean;
       <div className={`panel my-8 w-full ${wide ? "max-w-3xl" : "max-w-lg"} shadow-2xl`} onMouseDown={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between border-b border-border px-5 py-3">
           <h2 className="text-base font-bold">{title}</h2>
-          <button className="rounded p-1 hover:bg-muted" onClick={onClose} aria-label="close"><X className="size-4" /></button>
+          <button className="rounded p-1 hover:bg-muted" onClick={onClose} aria-label="close">
+            <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          </button>
         </div>
         <div className="p-5">{children}</div>
       </div>
@@ -28,7 +29,9 @@ export function Drawer({ open, onClose, title, children }: { open: boolean; onCl
       <div className="ms-auto h-full w-full max-w-xl overflow-y-auto border-s border-border bg-card shadow-2xl" onMouseDown={(e) => e.stopPropagation()}>
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-card px-5 py-3">
           <h2 className="text-base font-bold">{title}</h2>
-          <button className="rounded p-1 hover:bg-muted" onClick={onClose} aria-label="close"><X className="size-4" /></button>
+          <button className="rounded p-1 hover:bg-muted" onClick={onClose} aria-label="close">
+            <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          </button>
         </div>
         <div className="p-5">{children}</div>
       </div>
